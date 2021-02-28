@@ -1,4 +1,3 @@
-import Link from "next/link";
 import FixedSidebar from "../components/FixedSidebar";
 import Layout from "../components/Layout";
 import ScrollWrapper from "../components/ScrollWrapper";
