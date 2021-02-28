@@ -6,7 +6,7 @@ export default function ScrollWrapper() {
         <div className="container">
           <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32 lg:pl-16">
             <div
-              className="w-full lg:w-3/4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 hover:bg-secondary group hover:-translate-y-2"
+              className="w-full lg:w-3/4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 hover:bg-secondary group hover:-translate-y-2 rounded-lg"
               id="work"
             >
               <div className="px-5 py-20 mx-auto text-left ">
@@ -23,7 +23,7 @@ export default function ScrollWrapper() {
                   temporibus doloremque dicta magnam! Dolorum ipsa magni iure
                   labore suscipit sit nisi sunt animi ab.
                 </p>
-                
+
                 <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
                 <p className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-blue-1000 lg:text-3xl group-hover:text-white">
                   Project 2
@@ -34,7 +34,7 @@ export default function ScrollWrapper() {
                   voluptatum esse earum quis maiores quia ab obcaecati! Laborum
                   ratione dolores nesciunt sunt quidem consequuntur!
                 </p>
-             
+
                 <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
                 <p className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-blue-1000 lg:text-3xl group-hover:text-white">
                   Project 3
@@ -45,11 +45,10 @@ export default function ScrollWrapper() {
                   nemo saepe, veniam quos molestiae voluptates labore architecto
                   dolorem minus optio dolor illum ad.
                 </p>
-                
               </div>
             </div>
             <div
-              className="w-full lg:w-3/4 transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-tertiary hover:bg-quaternary group hover:-translate-y-2"
+              className="w-full lg:w-3/4 transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-tertiary hover:bg-quaternary group hover:-translate-y-2 rounded-lg"
               id="contact"
             >
               <div className="px-5 py-20 mx-auto text-left">
