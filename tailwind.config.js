@@ -3,11 +3,29 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     colors: {
+
+
+    // darkmode
+    lightBlack: '#191F2B',
+    darkGrey: '#2B2F3D',
+    mediumGrey: '#86919B',
+    lightGrey: '#F7F7F7',
+    darkTeal: '#0090A8',
+    lightTeal: '#00D0F2',
+    white: '#FEFEFE',
+    //lightmode
+    solitude: '#DADEE7',
+
+
       backgroundLight: '#eff0f3',
-      backgroundDark: '#16161a',
+      backgroundCardLightPrimary: '#0f4c75',
+      backgroundCardLightSecondary: '#bbe1fa',
+      backgroundCardDarkPrimary: '#0784b5',
+      backgroundCardDarkSecondary: '#414c50',
       secondary: '#72757e',
       headline: '#fffffe',
-      paragraph: '#BED1E9',
+      paragraphDark: '#BED1E9',
+      paragraphLight: '#2b2c34',
       button: '#7f5af0',
       buttonText: '#fffffe',
       primary: '#2cb67d',
