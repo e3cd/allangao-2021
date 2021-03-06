@@ -1,4 +1,4 @@
 ---
-hero_title: Allan Gao
-hero_description: What's good in the hood
+hero_title: Allan Gao's Website
+hero_description: Cmon bruh
 ---
