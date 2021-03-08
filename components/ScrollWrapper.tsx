@@ -1,12 +1,31 @@
+import { SyntheticEvent } from "react";
+import { useNavbar } from "../utils/navbarState";
+
 export default function ScrollWrapper() {
+  const { setNavbarColorLight, setNavbarColorDark } = useNavbar();
+
+  const scrollEvent = (e: SyntheticEvent) => {
+    const target = e.target as HTMLElement;
+
+    if (target.scrollTop >= 64) {
+      setNavbarColorLight();
+    } else {
+      setNavbarColorDark();
+    }
+  };
+
   return (
-    <div className="flex flex-1 overflow-hidden">
+    <div className="flex flex-1 overflow-hidden" id="main">
       {/* <!-- Scrollable container --> */}
-      <div className="flex-1 overflow-y-scroll">
+      <div
+        className="flex-1 overflow-y-scroll"
+        id="child"
+        onScroll={scrollEvent}
+      >
         <div className="container">
-          <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32 ">
+          <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32">
             <div
-              className="w-full lg:w-3/4 mb-4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg"
+              className="w-full lg:w-3/4 mb-4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg"
               id="work"
             >
               <div className="px-5 py-20 mx-auto text-left ">
@@ -48,7 +67,7 @@ export default function ScrollWrapper() {
               </div>
             </div>
             <div
-              className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg"
+              className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg"
               id="contact"
             >
               <div className="px-5 py-20 mx-auto text-left">

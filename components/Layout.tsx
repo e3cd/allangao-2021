@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
+import Navbar from "./Navbar";
 
 interface Props {
   children?: ReactNode;
@@ -38,6 +39,7 @@ const Layout = ({ metadata, children }: Props) => {
       </nav>
     </header> */}
       <section className="flex flex-col lg:flex-row lg:h-screen">
+        <Navbar />
         {children}
       </section>
       {/* <footer>

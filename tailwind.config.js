@@ -6,13 +6,14 @@ module.exports = {
 
 
     // darkmode
-    lightBlack: '#191F2B',
+    lightBlack: '#020304',
     darkGrey: '#2B2F3D',
     mediumGrey: '#86919B',
     lightGrey: '#F7F7F7',
     darkTeal: '#0090A8',
     lightTeal: '#00D0F2',
     white: '#FEFEFE',
+    navbarDark: '#334059',
     //lightmode
     solitude: '#DADEE7',
 
