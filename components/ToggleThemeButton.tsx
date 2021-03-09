@@ -4,7 +4,7 @@ export default function ToggleThemeButton() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-900 dark:text-white">
+    <div className="bg-gray-100 dark:bg-gray-900 dark:text-white pl-8">
       <button
         aria-label="Toggle Dark Mode"
         type="button"

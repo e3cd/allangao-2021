@@ -25,7 +25,7 @@ export default function ScrollWrapper() {
         <div className="container">
           <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32">
             <div
-              className="w-full lg:w-3/4 mb-4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg"
+              className="w-full lg:w-3/4 mb-4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg-light dark:glass-bg-dark"
               id="work"
             >
               <div className="px-5 py-20 mx-auto text-left ">
@@ -67,7 +67,7 @@ export default function ScrollWrapper() {
               </div>
             </div>
             <div
-              className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg"
+              className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg-light dark:glass-bg-dark"
               id="contact"
             >
               <div className="px-5 py-20 mx-auto text-left">

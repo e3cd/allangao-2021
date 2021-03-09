@@ -13,7 +13,7 @@ module.exports = {
     darkTeal: '#0090A8',
     lightTeal: '#00D0F2',
     white: '#FEFEFE',
-    navbarDark: '#334059',
+    navbarDark: 'rgba(31, 38, 137, 0.95)',
     //lightmode
     solitude: '#DADEE7',
 
