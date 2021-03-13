@@ -1,5 +1,6 @@
 ---
 title: Projects
+seperator: true
 Cards:
   - type: title_and_link
     seperator: false
