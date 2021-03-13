@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "env": "^0.0.2",
-    "netlify-cms-app": "^2.14.26",
+    "netlify-cms-app": "^2.14.27",
     "next": "latest",
     "next-themes": "^0.0.12",
     "react": "^17.0.1",
