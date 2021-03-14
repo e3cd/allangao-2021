@@ -36,8 +36,8 @@ export default function ScrollWrapper({ cardsContent }: Props) {
       >
         <div className="container">
           <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32">
-            {cardsContent.map((cardContent) => {
-              return <Card cardContent={cardContent} />;
+            {cardsContent.map((cardContent, i) => {
+              return <Card cardContent={cardContent} key={i} />;
             })}
             <div
               className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg-light dark:glass-bg-dark"
