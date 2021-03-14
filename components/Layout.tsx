@@ -1,19 +1,28 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
+import Navbar from "./Navbar";
 
-type Props = {
+interface Props {
   children?: ReactNode;
-  title?: string;
+  metadata: { attributes: MetadataAttributes };
+}
+
+type MetadataAttributes = {
+  title: String;
 };
 
-const Layout = ({ children, title = "This is the default title" }: Props) => (
-  <>
-    <Head>
-      <title>{title}</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    {/* <header>
+const Layout = ({ metadata, children }: Props) => {
+  const { attributes } = metadata;
+  const title = attributes?.title;
+  // console.log(metadata);
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      {/* <header>
       <nav>
         <Link href="/">
           <a>Home</a>
@@ -29,14 +38,16 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
         | <a href="/api/users">Users API</a>
       </nav>
     </header> */}
-    <section className="flex flex-col lg:flex-row lg:h-screen">
-      {children}
-    </section>
-    {/* <footer>
+      <section className="flex flex-col lg:flex-row lg:h-screen">
+        <Navbar />
+        {children}
+      </section>
+      {/* <footer>
       <hr />
       <span>I'm here to stay (Footer)</span>
     </footer> */}
-  </>
-);
+    </>
+  );
+};
 
 export default Layout;

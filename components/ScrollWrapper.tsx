@@ -1,67 +1,58 @@
-export default function ScrollWrapper() {
+import { SyntheticEvent } from "react";
+import { useNavbar } from "../utils/navbarState";
+import Card from "./Card";
+
+interface Props {
+  cardsContent: CardAttributes[];
+}
+
+interface CardAttributes {
+  attributes: object;
+  html: string;
+}
+
+export default function ScrollWrapper({ cardsContent }: Props) {
+  const { setNavbarColorLight, setNavbarColorDark } = useNavbar();
+
+  console.log(cardsContent);
+
+  const scrollEvent = (e: SyntheticEvent) => {
+    const target = e.target as HTMLElement;
+
+    if (target.scrollTop >= 64) {
+      setNavbarColorLight();
+    } else {
+      setNavbarColorDark();
+    }
+  };
+
   return (
-    <div className="flex flex-1 overflow-hidden">
+    <div className="flex flex-1 overflow-hidden" id="main">
       {/* <!-- Scrollable container --> */}
-      <div className="flex-1 overflow-y-scroll">
+      <div
+        className="flex-1 overflow-y-scroll"
+        id="child"
+        onScroll={scrollEvent}
+      >
         <div className="container">
-          <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32 lg:pl-16">
+          <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32">
+            {cardsContent.map((cardContent, i) => {
+              return <Card cardContent={cardContent} key={i} />;
+            })}
             <div
-              className="w-full lg:w-3/4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 hover:bg-secondary group hover:-translate-y-2"
-              id="work"
-            >
-              <div className="px-5 py-20 mx-auto text-left ">
-                <p className="mx-auto text-xl font-thin leading-none tracking-tighter transition duration-500 ease-in-out transform text-shadow-lg text-blueGray-600 lg:text-6xl group-hover:text-white">
-                  projects.
-                </p>
-                <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
-                <p className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-blue-1000 lg:text-3xl group-hover:text-white">
-                  Project 1
-                </p>
-                <p className="my-4 text-sm leading-5 tracking-tighter text-center transition duration-500 ease-in-out transform text-blue-1000 lg:text-left lg:text-1xl group-hover:text-paragraph">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Veritatis fugiat quos aspernatur blanditiis odit sequi,
-                  temporibus doloremque dicta magnam! Dolorum ipsa magni iure
-                  labore suscipit sit nisi sunt animi ab.
-                </p>
-                
-                <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
-                <p className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-blue-1000 lg:text-3xl group-hover:text-white">
-                  Project 2
-                </p>
-                <p className="my-4 text-sm leading-5 tracking-tighter text-center transition duration-500 ease-in-out transform text-blue-1000 lg:text-left lg:text-1xl group-hover:text-paragraph">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Corporis cumque qui, expedita tempore illo explicabo
-                  voluptatum esse earum quis maiores quia ab obcaecati! Laborum
-                  ratione dolores nesciunt sunt quidem consequuntur!
-                </p>
-             
-                <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
-                <p className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-blue-1000 lg:text-3xl group-hover:text-white">
-                  Project 3
-                </p>
-                <p className="my-4 text-sm leading-5 tracking-tighter text-center transition duration-500 ease-in-out transform text-blue-1000 lg:text-left lg:text-1xl group-hover:text-paragraph">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Natus, incidunt laborum nulla exercitationem corrupti ex magni
-                  nemo saepe, veniam quos molestiae voluptates labore architecto
-                  dolorem minus optio dolor illum ad.
-                </p>
-                
-              </div>
-            </div>
-            <div
-              className="w-full lg:w-3/4 transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-tertiary hover:bg-quaternary group hover:-translate-y-2"
+              className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg-light dark:glass-bg-dark"
               id="contact"
             >
               <div className="px-5 py-20 mx-auto text-left">
-                <p className="mx-auto text-xl font-thin leading-none tracking-tighter transition duration-500 ease-in-out transform text-shadow-lg text-blueGray-200 lg:text-6xl group-hover:text-white">
+                <p className="mx-auto text-xl font-thin leading-none tracking-tighter transition duration-500 ease-in-out transform text-shadow-lg  text-lightBlack dark:text-lightGrey lg:text-6xl">
                   contact.
                 </p>
                 <div className="h-1 my-6 border-t border-pink-1000 group-hover:border-blueGray-00"></div>
-                <p className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-pink-1000 lg:text-3xl group-hover:text-white">
+                <a className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-darkTeal hover:text-lightTeal lg:text-3xl">
                   email@example.com
-                </p>
+                </a>
                 <p>
-                  <span className="inline-flex my-4 transition duration-500 ease-in-out transform text-blue-1000 group-hover:text-pink-1000">
+                  <span className="inline-flex my-4 transition duration-500 ease-in-out transform text-lightGrey group-hover:text-pink-1000">
                     <a className="">
                       <svg
                         width="24"
