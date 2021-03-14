@@ -1,4 +1,25 @@
-export default function Card() {
+interface Props {
+  cardContent: CardAttributes;
+}
+
+interface CardAttributes {
+  attributes: object;
+  html: string;
+}
+
+type CardContentAttributes = {
+  card_list_items: Array<object>;
+  seperator: boolean;
+  title: string;
+};
+
+export default function Card({ cardContent }: Props) {
+  console.log();
+
+  const { attributes }: CardContentAttributes = cardContent;
+
+  console.log(attributes);
+
   return (
     <div
       className="w-full lg:w-3/4 mb-4 bg-paragraph transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg-light dark:glass-bg-dark"
@@ -6,9 +27,20 @@ export default function Card() {
     >
       <div className="px-5 py-20 mx-auto text-left ">
         <p className="mx-auto text-xl font-thin leading-none tracking-tighter transition duration-500 ease-in-out transform text-shadow-lg text-lightBlack dark:text-lightGrey lg:text-6xl">
-          projects.
+          {attributes.title}
         </p>
-        <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
+        {attributes?.seperator ? (
+          <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
+        ) : null}
+
+        {/* {attributes.card_list_items? attributes.card_list_items[0].map((item) => {
+          return (
+            <>
+
+            </>
+          )
+        }) : null} */}
+
         <a className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-darkTeal hover:text-lightTeal lg:text-3xl">
           Project 1
         </a>

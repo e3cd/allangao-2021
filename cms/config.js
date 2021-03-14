@@ -67,7 +67,7 @@ export default {
 				},
                 {
                     label: "Card List Items",
-                    name: "Card List Items",
+                    name: "card_list_items",
                     label_singular: "Card List Item",
                     widget: 'list',
                     types: [

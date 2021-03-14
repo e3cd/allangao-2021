@@ -9,7 +9,7 @@ import { getCardsContent } from "./../utils/getCardsContent";
 interface Props {
   homepageContent: { attributes: HomeAttributes };
   metadata: { attributes: MetadataAttributes };
-  cardsContent: CardAttribute[];
+  cardsContent: CardTypes[];
 }
 interface HomeAttributes {
   hero_title: string;
@@ -25,10 +25,9 @@ interface MetadataAttributes {
 //   html: string;
 // }
 
-type CardAttribute = {
-  Cards: Object[];
-  seperator: boolean;
-  title: string;
+type CardTypes = {
+  attributes: object;
+  html: string;
 };
 
 const HomePage: NextPage<Props> = ({
