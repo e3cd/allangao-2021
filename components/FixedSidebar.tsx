@@ -1,5 +1,3 @@
-import ToggleThemeButton from "./ToggleThemeButton";
-
 interface Props {
   attributes: FixedSidebarAttributes;
 }

@@ -46,11 +46,12 @@ export default {
             name: "Home Page Cards",
             label: "Home Page Cards",
             label_singular: "Card",
-            folder: 'content/cards',
+            folder: 'content/cards/',
             create: true,
             slug: "{{slug}}",
             extension: 'md',
             format: 'yaml-frontmatter',
+			// widget: "list",
             fields: [{
                     label: 'Title',
                     name: 'title',

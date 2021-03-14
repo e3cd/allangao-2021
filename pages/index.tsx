@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import ScrollWrapper from "../components/ScrollWrapper";
 
 interface Props {
-  content: { attributes: HomeAttributes };
+  homepageContent: { attributes: HomeAttributes };
   metadata: { attributes: MetadataAttributes };
 }
 interface HomeAttributes {
@@ -17,8 +17,8 @@ interface MetadataAttributes {
   title: string;
 }
 
-const HomePage: NextPage<Props> = ({ content, metadata }) => {
-  const { attributes } = content;
+const HomePage: NextPage<Props> = ({ homepageContent, metadata }) => {
+  const { attributes } = homepageContent;
 
   return (
     <Layout metadata={metadata}>
@@ -29,9 +29,15 @@ const HomePage: NextPage<Props> = ({ content, metadata }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const content = await import(`../content/pages/${"home"}.md`);
+  const homepageContent = await import(`../content/pages/${"home"}.md`);
   const metaData = await import(`../content/metadata/${"index"}.md`);
-  return { props: { content: content.default, metadata: metaData.default } };
+  // const projectsCardContent = await import(`../content/cards/${"projects"}.md`);
+  return {
+    props: {
+      homepageContent: homepageContent.default,
+      metadata: metaData.default,
+    },
+  };
 };
 
 export default HomePage;
