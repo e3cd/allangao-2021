@@ -4,9 +4,12 @@ import FixedSidebar from "../components/FixedSidebar";
 import Layout from "../components/Layout";
 import ScrollWrapper from "../components/ScrollWrapper";
 
+import { getCardsContent } from "./../utils/getCardsContent";
+
 interface Props {
   homepageContent: { attributes: HomeAttributes };
   metadata: { attributes: MetadataAttributes };
+  cardsContent: CardAttribute[];
 }
 interface HomeAttributes {
   hero_title: string;
@@ -17,13 +20,30 @@ interface MetadataAttributes {
   title: string;
 }
 
-const HomePage: NextPage<Props> = ({ homepageContent, metadata }) => {
-  const { attributes } = homepageContent;
+// interface CardsAttributes {
+//   attributes: CardAttribute;
+//   html: string;
+// }
+
+type CardAttribute = {
+  Cards: Object[];
+  seperator: boolean;
+  title: string;
+};
+
+const HomePage: NextPage<Props> = ({
+  homepageContent,
+  cardsContent,
+  metadata,
+}) => {
+  console.log(cardsContent);
+
+  const { attributes: homeAttributes } = homepageContent;
 
   return (
     <Layout metadata={metadata}>
-      <FixedSidebar attributes={attributes} />
-      <ScrollWrapper />
+      <FixedSidebar homeAttributes={homeAttributes} />
+      <ScrollWrapper cardsContent={cardsContent} />
     </Layout>
   );
 };
@@ -31,11 +51,14 @@ const HomePage: NextPage<Props> = ({ homepageContent, metadata }) => {
 export const getStaticProps: GetStaticProps = async () => {
   const homepageContent = await import(`../content/pages/${"home"}.md`);
   const metaData = await import(`../content/metadata/${"index"}.md`);
-  // const projectsCardContent = await import(`../content/cards/${"projects"}.md`);
+
+  const cardsContent = getCardsContent();
+
   return {
     props: {
       homepageContent: homepageContent.default,
       metadata: metaData.default,
+      cardsContent,
     },
   };
 };

@@ -7,7 +7,8 @@ export default {
     },
     media_folder: 'public/img',
     public_folder: 'img',
-    collections: [{
+    collections: [
+		{
             name: 'pages',
             label: 'Page',
             create: true,
@@ -66,8 +67,8 @@ export default {
 				},
                 {
                     label: "Card List Items",
-                    name: "Cards",
-                    label_singular: "Card List",
+                    name: "Card List Items",
+                    label_singular: "Card List Item",
                     widget: 'list',
                     types: [
 						{

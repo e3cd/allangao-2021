@@ -14,7 +14,7 @@ type MetadataAttributes = {
 const Layout = ({ metadata, children }: Props) => {
   const { attributes } = metadata;
   const title = attributes?.title;
-  console.log(metadata);
+  // console.log(metadata);
   return (
     <>
       <Head>

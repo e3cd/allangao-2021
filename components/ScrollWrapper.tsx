@@ -2,8 +2,20 @@ import { SyntheticEvent } from "react";
 import { useNavbar } from "../utils/navbarState";
 import Card from "./Card";
 
-export default function ScrollWrapper() {
+interface Props {
+  cardsContent: CardAttributes[];
+}
+
+interface CardAttributes {
+  CardListItem: Array<object>;
+  seperator: boolean;
+  title: string;
+}
+
+export default function ScrollWrapper({ cardsContent }: Props) {
   const { setNavbarColorLight, setNavbarColorDark } = useNavbar();
+
+  console.log(cardsContent);
 
   const scrollEvent = (e: SyntheticEvent) => {
     const target = e.target as HTMLElement;
@@ -25,6 +37,9 @@ export default function ScrollWrapper() {
       >
         <div className="container">
           <div className="inline-flex flex-col items-center w-full mx-auto mt-4 lg:mt-32">
+            {/* {cardsContent.map((cardContent: ICardContent) => {
+              <Card cardContent={cardContent} />;
+            })} */}
             <Card />
             <div
               className="w-full lg:w-3/4 mb-4  transition duration-500 ease-in-out transform shadow-2xl lg:px-12 bg-white dark:bg-darkGrey group hover:-translate-y-2 rounded-lg glass-bg-light dark:glass-bg-dark"
