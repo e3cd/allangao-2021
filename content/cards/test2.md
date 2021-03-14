@@ -9,7 +9,19 @@ card_list_items:
     Icon:
       - icon: img/github-svgrepo-com.svg
         link_url: test
-  - type: description
+  - type: contact_links
     seperator: true
-    description: test
+    links:
+      - type: link_item
+        name: test
+        icon: img/linkedin-svgrepo-com.svg
+        link_url: test
+      - type: link_item
+        name: test
+        icon: img/github-svgrepo-com.svg
+        link_url: test
+      - type: link_item
+        name: test
+        icon: img/email-svgrepo-com.svg
+        link_url: test
 ---
