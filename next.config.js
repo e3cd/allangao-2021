@@ -1,14 +1,22 @@
-const glob = require('glob')
-
 module.exports = {
 	webpack: (config) => {
 	  config.module.rules.push({
 		test: /\.md$/,
 		loader: 'frontmatter-markdown-loader',
-		// options: {
-		// 	name: 
-		// }
-	  });
+
+	  },
+	  {
+        test: /\.(png|jp(e*)g|svg|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[hash]-[name].[ext]',
+            },
+          },
+        ],
+      },
+	  );
 	  return config;
 	},
   };
