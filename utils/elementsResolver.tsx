@@ -4,12 +4,27 @@ export const elementResolver = (item: any) => {
   function isTitleAndLink() {
     return (
       <>
-        <a
-          href={item?.link_url ? item.link_url : ""}
-          className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-darkTeal hover:text-lightTeal lg:text-3xl"
-        >
-          {item?.title}
-        </a>
+        <div className="flex ">
+          <div className="flex-initial">
+            <a
+              href={item?.link_url ? item.link_url : ""}
+              className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-darkTeal hover:text-lightTeal lg:text-3xl"
+            >
+              {item?.title}
+            </a>
+          </div>
+          {item?.Icon?.length ? (
+            <div className="flex-initial  pl-8">
+              <a href={item.Icon[0].link_url}>
+                <img
+                  src={item.Icon[0].icon}
+                  className="dark:fill-current white"
+                />
+              </a>
+            </div>
+          ) : null}
+        </div>
+
         {seperator(item)}
       </>
     );
