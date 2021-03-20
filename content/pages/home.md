@@ -14,7 +14,5 @@ hero_description: >-
   Outside of work, I'm hitting the local courts for some pickup basketball or scouring the latest blockchain marketplaces.
 
 
-
-
   Feel free to contact me through my social links and check out the projects that I've worked on.
 ---
