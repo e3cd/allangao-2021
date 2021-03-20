@@ -4,7 +4,7 @@ seperator: true
 card_list_items:
   - type: description
     seperator: false
-    description: Feel free to contact me
+    description: Feel free to contact me through the links provided
   - type: contact_links
     seperator: true
     links:
