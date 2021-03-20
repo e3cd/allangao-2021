@@ -7,7 +7,7 @@ card_list_items:
     title: FakeSlack
     link_url: https://fake-slack.firebaseapp.com/
     Icon:
-      - icon: img/github-svgrepo-com-2-1-.svg
+      - icon: img/12090117491553664904.svg
         link_url: https://github.com/e3cd/fake-slack
   - type: description
     seperator: true
