@@ -14,7 +14,7 @@ card_list_items:
         link_url: https://www.linkedin.com/in/allan-gao-43a7b5125/
       - type: link_item
         name: Github
-        icon: img/github-svgrepo-com.svg
+        icon: img/github-svgrepo-com-2-1-.svg
         link_url: https://github.com/e3cd
       - type: link_item
         name: Email
