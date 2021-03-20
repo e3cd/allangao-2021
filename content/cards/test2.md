@@ -10,14 +10,14 @@ card_list_items:
     links:
       - type: link_item
         name: LinkedIn
-        icon: img/19768422391530099617-1-.svg
+        icon: img/18691305131558424430-2-.svg
         link_url: https://www.linkedin.com/in/allan-gao-43a7b5125/
       - type: link_item
         name: Github
-        icon: img/12090117491553664904.svg
+        icon: img/6062216611556105707.svg
         link_url: https://github.com/e3cd
       - type: link_item
         name: Email
-        icon: img/3887501961556274012.svg
+        icon: img/21372402271543238902-1-.svg
         link_url: mailto:allangao95@gmail.com
 ---
