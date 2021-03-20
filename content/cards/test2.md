@@ -1,25 +1,23 @@
 ---
-title: test2
+title: Links
 seperator: true
 card_list_items:
-  - type: title_and_link
+  - type: description
     seperator: false
-    title: test
-    link_url: test
-    Icon: []
+    description: Feel free to contact me
   - type: contact_links
     seperator: true
     links:
       - type: link_item
-        name: test
+        name: LinkedIn
         icon: img/linkedin-svgrepo-com.svg
-        link_url: test
+        link_url: https://www.linkedin.com/in/allan-gao-43a7b5125/
       - type: link_item
-        name: test
+        name: Github
         icon: img/github-svgrepo-com.svg
-        link_url: test
+        link_url: https://github.com/e3cd
       - type: link_item
-        name: test
+        name: Email
         icon: img/email-svgrepo-com.svg
-        link_url: test
+        link_url: mailto:allangao95@gmail.com
 ---
