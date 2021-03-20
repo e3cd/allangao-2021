@@ -10,7 +10,7 @@ card_list_items:
     links:
       - type: link_item
         name: LinkedIn
-        icon: img/linkedin-svgrepo-com.svg
+        icon: img/linkedin-square-logo-svgrepo-com-3-.svg
         link_url: https://www.linkedin.com/in/allan-gao-43a7b5125/
       - type: link_item
         name: Github
@@ -18,6 +18,6 @@ card_list_items:
         link_url: https://github.com/e3cd
       - type: link_item
         name: Email
-        icon: img/email-svgrepo-com.svg
+        icon: img/email-svgrepo-com-1-.svg
         link_url: mailto:allangao95@gmail.com
 ---
