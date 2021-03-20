@@ -17,16 +17,16 @@ export default function Navbar() {
           href="/"
           className="tracking-widest rounded-lg focus:outline-none focus:shadow-outline dark:text-white ml-16"
         >
-          Logo
+          AG
         </a>
       </Link>
 
       <div className={`flex mr-16`}>
-        <Link href="/blog">
+        {/* <Link href="/blog">
           <a className="flex items-center px-4 py-2 mt-0 ml-4 text-md font-semibold dark:text-white focus:outline-none focus:shadow-outline">
             Blog
           </a>
-        </Link>
+        </Link> */}
 
         <ToggleThemeButton />
       </div>

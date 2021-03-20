@@ -1,4 +1,11 @@
+import { useTheme } from "next-themes";
+import Image from "next/image";
+
 export const elementResolver = (item: any) => {
+  const { theme } = useTheme();
+
+  console.log(theme);
+
   const fieldType = item?.type;
 
   function isTitleAndLink() {
@@ -15,14 +22,18 @@ export const elementResolver = (item: any) => {
           </div>
           {item?.Icon?.length ? (
             <div className="flex-initial  pl-8">
-              <button className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none ">
-                <a href={item.Icon[0].link_url}>
-                  <img
-                    src={item.Icon[0].icon}
-                    className="logo-svg-light dark:logo-svg-dark"
-                  />
-                </a>
-              </button>
+              <a
+                className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none "
+                href={item.Icon[0].link_url}
+                target="_blank"
+              >
+                <Image
+                  src={`/${item.Icon[0].icon}`}
+                  className={theme === "dark" ? "svg-dark" : "svg-light"}
+                  width="24"
+                  height="24"
+                />
+              </a>
             </div>
           ) : null}
         </div>
@@ -45,13 +56,28 @@ export const elementResolver = (item: any) => {
 
   function isContactLinks() {
     return (
-      <p>
-        <span className="inline-flex my-4 transition duration-500 ease-in-out transform text-lightGrey group-hover:text-pink-1000">
-          <a href={item?.link_url}>
-            <img src={item?.icon} alt={item.name} />
-          </a>
-        </span>
-      </p>
+      <span className=" inline-flex my-4 transition duration-500 ease-in-out transform text-lightGrey group-hover:text-pink-1000">
+        {item?.links
+          ? item.links.map((link: any, i: number) => {
+              return (
+                <a
+                  className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none  mr-8"
+                  href={link.link_url || link.pdf_link}
+                  target="_blank"
+                  key={i}
+                >
+                  <Image
+                    src={`/${link.icon}`}
+                    alt={link.name}
+                    width="24"
+                    height="24"
+                    className={theme === "dark" ? "svg-dark" : "svg-light"}
+                  />
+                </a>
+              );
+            })
+          : null}
+      </span>
     );
   }
 
