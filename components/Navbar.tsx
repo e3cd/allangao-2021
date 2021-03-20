@@ -22,13 +22,8 @@ export default function Navbar() {
       </Link>
 
       <div className={`flex mr-16`}>
-        <Link href="/">
-          <a className="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-lightBlack dark:text-white rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-            Projects
-          </a>
-        </Link>
-        <Link href="/">
-          <a className="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-lightBlack dark:text-white rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+        <Link href="/blog">
+          <a className="flex items-center px-4 py-2 mt-0 ml-4 text-md font-semibold dark:text-white focus:outline-none focus:shadow-outline">
             Blog
           </a>
         </Link>

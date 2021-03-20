@@ -4,7 +4,7 @@ import Navbar from "./Navbar";
 
 interface Props {
   children?: ReactNode;
-  metadata: { attributes: MetadataAttributes };
+  metadata: { attributes?: MetadataAttributes };
 }
 
 type MetadataAttributes = {
@@ -18,7 +18,7 @@ const Layout = ({ metadata, children }: Props) => {
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{title} | Allan Gao</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
