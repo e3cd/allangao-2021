@@ -20,4 +20,8 @@ card_list_items:
         name: Email
         icon: img/21372402271543238902-1-.svg
         link_url: mailto:allangao95@gmail.com
+      - type: link_item
+        name: Resume
+        icon: img/curriculum-vitae-svgrepo-com.svg
+        pdf_link: img/allan-gao-2021-resume.pdf
 ---
