@@ -3,7 +3,7 @@ title: Projects
 seperator: true
 card_list_items:
   - type: title_and_link
-    seperator: true
+    seperator: false
     title: FakeSlack
     link_url: https://fake-slack.firebaseapp.com/
     Icon:
