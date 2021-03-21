@@ -1,11 +1,29 @@
+import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import { useNavbar } from "../utils/navbarState";
 import ToggleThemeButton from "./ToggleThemeButton";
 
-export default function Navbar() {
-  const { navbarDark } = useNavbar();
-  // console.log(navbarDark);
+interface Props {
+  navContent: NavAttributes;
+}
 
+type NavAttributes = {
+  theme_icon_light: string;
+  theme_icon_dark: string;
+  header_logo_dark: string;
+  header_logo_light: string;
+};
+
+export default function Navbar({ navContent }: Props) {
+  const { navbarDark } = useNavbar();
+  const { theme } = useTheme();
+
+  const darkHeaderIconImg = navContent.header_logo_dark;
+  const lightHeaderIconImg = navContent.header_logo_light;
+  const darkIconImg = navContent.theme_icon_dark;
+
+  const lightIconImg = navContent.theme_icon_light;
   return (
     <header
       className={`w-full text-gray-700 bg-white h-16 fixed top-0 flex justify-between items-center z-40 dark:bg-lightBlack bg-opacity-100 transition-colors  ${
@@ -15,25 +33,37 @@ export default function Navbar() {
       <Link href="/">
         <a
           href="/"
-          className="tracking-widest rounded-lg focus:outline-none focus:shadow-outline dark:text-white ml-16"
+          className="tracking-widest rounded-lg focus:outline-none focus:shadow-outline dark:text-white ml-8 lg:ml-16"
         >
-          Logo
+          {theme === "dark" ? (
+            <Image
+              src={`/${darkHeaderIconImg}`}
+              width="60"
+              height="60"
+              className="svg-dark"
+            />
+          ) : (
+            <Image
+              src={`/${lightHeaderIconImg}`}
+              width="60"
+              height="60"
+              className="svg-dark"
+            />
+          )}
         </a>
       </Link>
 
-      <div className={`flex mr-16`}>
-        <Link href="/">
-          <a className="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-lightBlack dark:text-white rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
-            Projects
-          </a>
-        </Link>
-        <Link href="/">
-          <a className="flex items-center px-3 py-1 mt-2 text-lg font-semibold text-lightBlack dark:text-white rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+      <div className={`flex lg:mr-10`}>
+        {/* <Link href="/blog">
+          <a className="flex items-center px-4 py-2 mt-0 ml-4 text-md font-semibold dark:text-white focus:outline-none focus:shadow-outline">
             Blog
           </a>
-        </Link>
+        </Link> */}
 
-        <ToggleThemeButton />
+        <ToggleThemeButton
+          darkIconImg={darkIconImg}
+          lightIconImg={lightIconImg}
+        />
       </div>
     </header>
   );
