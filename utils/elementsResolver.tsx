@@ -1,17 +1,18 @@
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { Fragment } from "react";
 
-export const elementResolver = (item: any) => {
+export const elementResolver = (item: any, i: number) => {
   const { theme } = useTheme();
 
-  console.log(theme);
+  // console.log(theme);
 
   const fieldType = item?.type;
 
   function isTitleAndLink() {
     return (
-      <>
-        <div className="flex justify-between">
+      <Fragment key={`title-and-link-${i}`}>
+        <div className="flex justify-between items-center">
           <div className="flex-initial">
             <a
               href={item?.link_url ? item.link_url : ""}
@@ -23,7 +24,7 @@ export const elementResolver = (item: any) => {
           {item?.Icon?.length ? (
             <div className="flex-initial  pl-8">
               <a
-                className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none "
+                className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-2 mt-2 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none "
                 href={item.Icon[0].link_url}
                 target="_blank"
               >
@@ -32,6 +33,7 @@ export const elementResolver = (item: any) => {
                   className={theme === "dark" ? "svg-dark" : "svg-light"}
                   width="24"
                   height="24"
+                  key={`title-and-link-icon-${i}`}
                 />
               </a>
             </div>
@@ -39,24 +41,24 @@ export const elementResolver = (item: any) => {
         </div>
 
         {seperator(item)}
-      </>
+      </Fragment>
     );
   }
 
   function isDescription() {
     return (
-      <>
-        <div className="my-4 text-sm leading-5 tracking-tighter text-center transition duration-500 ease-in-out transform text-mediumGrey lg:text-left lg:text-1xl group-hover:text-paragraph">
+      <Fragment key={`description-${i}`}>
+        <div className="my-4 text-sm leading-5 tracking-tighter  text-left transition duration-500 ease-in-out transform text-mediumGrey lg:text-left lg:text-1xl group-hover:text-paragraph">
           {item?.description}
         </div>
         {seperator(item)}
-      </>
+      </Fragment>
     );
   }
 
   function isContactLinks() {
     return (
-      <span className=" inline-flex my-4 transition duration-500 ease-in-out transform text-lightGrey group-hover:text-pink-1000">
+      <span className=" lg:inline-flex my-4 transition duration-500 ease-in-out transform text-lightGrey group-hover:text-pink-1000">
         {item?.links
           ? item.links.map((link: any, i: number) => {
               return (
@@ -64,7 +66,7 @@ export const elementResolver = (item: any) => {
                   className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none  mr-8"
                   href={link.link_url || link.pdf_link}
                   target="_blank"
-                  key={i}
+                  key={`link-${i}`}
                 >
                   <Image
                     src={`/${link.icon}`}
@@ -72,6 +74,7 @@ export const elementResolver = (item: any) => {
                     width="24"
                     height="24"
                     className={theme === "dark" ? "svg-dark" : "svg-light"}
+                    key={`contact-link-icon-${i}`}
                   />
                 </a>
               );

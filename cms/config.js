@@ -228,17 +228,16 @@ export default {
     {
       name: "Nav",
       label: "Nav",
-      create: true,
       files: [
         {
           label: "Nav",
           name: "nav",
-          file: "content/nav/",
+          file: "content/nav/index.md",
           fields: [
             {
-              label: "Theme Icon Light",
-              name: "theme_icon_light",
-              widget: "image",
+              label: "Header Logo Light",
+              name: "header_logo_light",
+              widget: "file",
               required: true,
               media_library: {
                 config: {
@@ -247,16 +246,38 @@ export default {
               },
             },
             {
-                label: "Theme Icon Dark",
-                name: "theme_icon_Dark",
-                widget: "image",
-                required: true,
-                media_library: {
-                  config: {
-                    multiple: false,
-                  },
+              label: "Header Logo Dark",
+              name: "header_logo_dark",
+              widget: "file",
+              required: true,
+              media_library: {
+                config: {
+                  multiple: false,
                 },
               },
+            },
+            {
+              label: "Theme Icon Light",
+              name: "theme_icon_light",
+              widget: "file",
+              required: true,
+              media_library: {
+                config: {
+                  multiple: false,
+                },
+              },
+            },
+            {
+              label: "Theme Icon Dark",
+              name: "theme_icon_dark",
+              widget: "file",
+              required: true,
+              media_library: {
+                config: {
+                  multiple: false,
+                },
+              },
+            },
           ],
         },
       ],

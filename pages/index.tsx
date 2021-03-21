@@ -10,6 +10,7 @@ interface Props {
   homepageContent: { attributes: HomeAttributes };
   metadata: { attributes: MetadataAttributes };
   cardsContent: CardTypes[];
+  navData: { attributes: NavAttributes };
 }
 interface HomeAttributes {
   hero_title: string;
@@ -18,6 +19,13 @@ interface HomeAttributes {
 
 interface MetadataAttributes {
   title: string;
+}
+
+interface NavAttributes {
+  theme_icon_light: string;
+  theme_icon_dark: string;
+  header_logo_dark: string;
+  header_logo_light: string;
 }
 
 // interface CardsAttributes {
@@ -34,13 +42,14 @@ const HomePage: NextPage<Props> = ({
   homepageContent,
   cardsContent,
   metadata,
+  navData,
 }) => {
-  console.log(cardsContent);
+  // console.log(cardsContent);
 
   const { attributes: homeAttributes } = homepageContent;
 
   return (
-    <Layout metadata={metadata}>
+    <Layout metadata={metadata} navData={navData}>
       <FixedSidebar homeAttributes={homeAttributes} />
       <ScrollWrapper cardsContent={cardsContent} />
     </Layout>
@@ -50,6 +59,9 @@ const HomePage: NextPage<Props> = ({
 export const getStaticProps: GetStaticProps = async () => {
   const homepageContent = await import(`../content/pages/${"home"}.md`);
   const metaData = await import(`../content/metadata/${"index"}.md`);
+  const navData = await import(`../content/nav/${"index"}.md`);
+
+  // console.log(navData);
 
   const cardsContent = getCardsContent();
 
@@ -58,6 +70,7 @@ export const getStaticProps: GetStaticProps = async () => {
       homepageContent: homepageContent.default,
       metadata: metaData.default,
       cardsContent,
+      navData: navData.default,
     },
   };
 };

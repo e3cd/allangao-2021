@@ -52,6 +52,7 @@ module.exports = {
       80: "20rem",
       96: "24rem",
     },
+
     animation: {
       none: "none",
       spin: "spin 1s linear infinite",
