@@ -16,7 +16,7 @@ export const elementResolver = (item: any, i: number) => {
           <div className="flex-initial">
             <a
               href={item?.link_url ? item.link_url : ""}
-              className="mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-darkTeal hover:text-lightTeal lg:text-3xl"
+              className="safe mx-auto mt-4 text-xl font-semibold leading-none tracking-tighter transition duration-500 ease-in-out transform text-darkTeal hover:text-lightTeal lg:text-3xl"
             >
               {item?.title}
             </a>
@@ -48,7 +48,7 @@ export const elementResolver = (item: any, i: number) => {
   function isDescription() {
     return (
       <Fragment key={`description-${i}`}>
-        <div className="my-4 text-sm leading-5 tracking-tighter  text-left transition duration-500 ease-in-out transform text-mediumGrey lg:text-left lg:text-1xl group-hover:text-paragraph">
+        <div className="safe my-4 text-sm leading-5 tracking-tighter  text-left transition duration-500 ease-in-out transform text-mediumGrey lg:text-left lg:text-1xl group-hover:text-paragraph">
           {item?.description}
         </div>
         {seperator(item)}
@@ -63,7 +63,7 @@ export const elementResolver = (item: any, i: number) => {
           ? item.links.map((link: any, i: number) => {
               return (
                 <a
-                  className="inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none  mr-8"
+                  className="safe inline-flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto mb-4 mt-1 transition-all duration-500 ease-in-out transform bg-gray-100 border-2 shadow-xl rounded-xl hover:text-darkTeal dark:bg-gray-900 dark:text-gray-100 hover:bg-lightTeal dark:hover:bg-gray-800 dark:hover:border-gray-900 border-darkTeal 	hover:border-lightTeal focus:ring-4 focus:ring-darkTeal focus:ring-opacity-50 focus:outline-none  mr-8"
                   href={link.link_url || link.pdf_link}
                   target="_blank"
                   key={`link-${i}`}
@@ -73,7 +73,9 @@ export const elementResolver = (item: any, i: number) => {
                     alt={link.name}
                     width="24"
                     height="24"
-                    className={theme === "dark" ? "svg-dark" : "svg-light"}
+                    className={
+                      theme === "dark" ? "safe svg-dark" : "safe svg-light"
+                    }
                     key={`contact-link-icon-${i}`}
                   />
                 </a>
@@ -97,7 +99,7 @@ export const elementResolver = (item: any, i: number) => {
 export const seperator = (item: any) => {
   if (item?.seperator) {
     return (
-      <div className="h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
+      <div className="safe h-1 my-6 border-t border-purple-1000 group-hover:border-blueGray-800"></div>
     );
   }
 };
@@ -105,7 +107,7 @@ export const seperator = (item: any) => {
 export const cardTitle = (item: any) => {
   if (item?.title) {
     return (
-      <p className="mx-auto text-xl font-thin leading-none tracking-tighter transition duration-500 ease-in-out transform text-shadow-lg text-lightBlack dark:text-lightGrey lg:text-6xl">
+      <p className="safe mx-auto text-xl font-thin leading-none tracking-tighter transition duration-500 ease-in-out transform text-shadow-lg text-lightBlack dark:text-lightGrey lg:text-6xl">
         {item.title}
       </p>
     );
