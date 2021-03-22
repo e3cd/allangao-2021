@@ -3,7 +3,7 @@ export default {
   backend: {
     name: "github",
     repo: "e3cd/allangao-2021",
-    branch: "develop",
+    branch: "main",
   },
   media_folder: "public/img",
   public_folder: "img",
