@@ -1,3 +1,3 @@
 ---
-title: Allan Gao Website
+title: Home
 ---
