@@ -12,7 +12,7 @@ export default function FixedSidebar({ homeAttributes }: Props) {
 
   return (
     <div className="w-full lg:w-2/5">
-      <div className="flex flex-col w-full pr-8 py-8 mx-auto pl-8 lg:pl-16 mt-4 lg:mt-32">
+      <div className="flex flex-col w-full pr-8 py-8 mx-auto pl-8 lg:pl-16 mt-16 lg:mt-32">
         <h1 className="mt-2  mb-8 text-base font-bold text-center  tracking-relaxed md:text-left title-font text-lightBlack dark:text-lightGrey lg:text-left lg:text-7xl title-font">
           {homeAttributes?.hero_title}
         </h1>
