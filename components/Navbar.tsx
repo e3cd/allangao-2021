@@ -18,12 +18,18 @@ type NavAttributes = {
 export default function Navbar({ navContent }: Props) {
   const { navbarDark } = useNavbar();
   const { theme } = useTheme();
+  const webTheme = theme ?? "dark";
 
   const darkHeaderIconImg = navContent.header_logo_dark;
   const lightHeaderIconImg = navContent.header_logo_light;
   const darkIconImg = navContent.theme_icon_dark;
-
   const lightIconImg = navContent.theme_icon_light;
+
+  const iconMap: Record<string, unknown> = {
+    dark: darkHeaderIconImg,
+    light: lightHeaderIconImg,
+  };
+
   return (
     <header
       className={`w-full text-gray-700 bg-white h-16 fixed top-0 flex justify-between items-center z-40 dark:bg-lightBlack bg-opacity-100 transition-colors  ${
@@ -35,21 +41,12 @@ export default function Navbar({ navContent }: Props) {
           href="/"
           className="tracking-widest rounded-lg focus:outline-none focus:shadow-outline dark:text-white ml-8 lg:ml-16"
         >
-          {theme === "dark" ? (
-            <Image
-              src={`/${darkHeaderIconImg}`}
-              width="60"
-              height="60"
-              className="svg-dark"
-            />
-          ) : (
-            <Image
-              src={`/${lightHeaderIconImg}`}
-              width="60"
-              height="60"
-              className="svg-dark"
-            />
-          )}
+          <Image
+            src={`/${iconMap[webTheme]}`}
+            width="60"
+            height="60"
+            className="svg-dark"
+          />
         </a>
       </Link>
 

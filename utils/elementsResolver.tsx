@@ -5,8 +5,6 @@ import { Fragment } from "react";
 export const elementResolver = (item: any, i: number) => {
   const { theme } = useTheme();
 
-  // console.log(theme);
-
   const fieldType = item?.type;
 
   function isTitleAndLink() {

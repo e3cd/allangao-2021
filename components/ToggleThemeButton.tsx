@@ -11,6 +11,12 @@ export default function ToggleThemeButton({
   darkIconImg,
 }: Props) {
   const { theme, setTheme } = useTheme();
+  const webTheme = theme ?? "dark";
+
+  const iconMap: Record<string, unknown> = {
+    dark: darkIconImg,
+    light: lightIconImg,
+  };
 
   return (
     <div className="bg-gray-100 dark:bg-gray-900 dark:text-white pl-8">
@@ -20,21 +26,12 @@ export default function ToggleThemeButton({
         className="outline-none	m-3 h-12 w-12 order-2 md:order-3"
         onClick={() => setTheme(theme === "light" ? "dark" : "light")}
       >
-        {theme === "dark" ? (
-          <Image
-            src={`/${lightIconImg}`}
-            width="48"
-            height="48"
-            className="svg-dark"
-          />
-        ) : (
-          <Image
-            src={`/${darkIconImg}`}
-            width="48"
-            height="48"
-            className="svg-light"
-          />
-        )}
+        <Image
+          src={`/${iconMap[webTheme]}`}
+          width="48"
+          height="48"
+          className={`svg-${webTheme}`}
+        />
       </button>
     </div>
   );
