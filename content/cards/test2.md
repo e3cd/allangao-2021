@@ -23,5 +23,5 @@ card_list_items:
       - type: link_item
         name: Resume
         icon: img/curriculum-vitae-svgrepo-com.svg
-        pdf_link: img/allan-gao-2021-resume.pdf
+        pdf_link: img/allan-gao-2022-resume-1-.pdf
 ---
